@@ -1,1 +1,134 @@
+:root{
+  --bg1:#003366;
+  --bg2:#008751;
+  --bg3:#ce1126;
+  --card:rgba(255,255,255,.12);
+  --border:rgba(255,255,255,.25);
+  --text:#ffffff;
+}
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  color:var(--text);
+
+  background:
+  linear-gradient(
+  135deg,
+  var(--bg1),
+  var(--bg2),
+  var(--bg3));
+
+  background-size:400% 400%;
+  animation:fondo 12s ease infinite;
+}
+
+@keyframes fondo{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.screen{
+  display:none;
+  padding:20px;
+  min-height:100vh;
+}
+
+.screen.active{
+  display:block;
+}
+
+h1{
+  text-align:center;
+  margin:30px 0;
+}
+
+.menu{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  max-width:500px;
+  margin:auto;
+}
+
+.card-btn{
+  border:none;
+  color:white;
+  padding:25px;
+  font-size:1.2rem;
+  border-radius:20px;
+
+  background:var(--card);
+
+  backdrop-filter:blur(15px);
+
+  border:1px solid var(--border);
+
+  cursor:pointer;
+}
+
+.card-btn:active{
+  transform:scale(.98);
+}
+
+.back-btn{
+  margin-bottom:20px;
+  padding:10px 16px;
+  border:none;
+  border-radius:12px;
+}
+
+.save-btn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+
+  border:none;
+  border-radius:50px;
+
+  padding:16px 24px;
+
+  font-weight:bold;
+}
+
+.table-container{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:rgba(255,255,255,.08);
+}
+
+th,td{
+  padding:10px;
+  text-align:center;
+}
+
+.stats-grid{
+  display:grid;
+  gap:15px;
+}
+
+.stat-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:20px;
+}
+
+@media(min-width:768px){
+
+  .stats-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
