@@ -132,3 +132,27 @@ th,td{
   }
 
 }
+
+.partido{
+  display:grid;
+  grid-template-columns:1fr 60px 60px 1fr;
+  gap:10px;
+  align-items:center;
+
+  margin-bottom:15px;
+
+  background:rgba(255,255,255,.12);
+
+  padding:15px;
+
+  border-radius:15px;
+}
+
+.partido input{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  text-align:center;
+  font-size:1rem;
+}
