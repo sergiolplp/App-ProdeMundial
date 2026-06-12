@@ -1,20 +1,134 @@
-<main id="app">
-  <section id="inicio" class="screen active">
-<h1>PRODE 2026</h1>
-<button id="btnResultados">
-  ⚽ Carga de Resultados
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Prode Mundial 2026</title>
+
+<link rel="icon" href="prode.ico">
+<link rel="apple-touch-icon" href="prode.ico">
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<section id="inicio" class="screen active">
+
+<h1>🏆 PRODE MUNDIAL 2026</h1>
+
+<div class="menu">
+
+<button class="card-btn" id="btnResultados">
+⚽ Carga de Resultados
 </button>
-<button id="btnPosiciones">
-  🏆 Posiciones del Prode
+
+<button class="card-btn" id="btnPosiciones">
+🏆 Posiciones del Prode
 </button>
-<button id="btnEstadisticas">
-  📊 Estadísticas
+
+<button class="card-btn" id="btnEstadisticas">
+📊 Estadísticas
 </button>
-  </section>
-  <section id="resultados" class="screen">
-  </section>
-  <section id="posiciones" class="screen">
-  </section>
-  <section id="estadisticas" class="screen">
-  </section>
-</main>
+
+</div>
+
+</section>
+
+<section id="resultados" class="screen">
+
+<button class="back-btn volver">
+← Volver
+</button>
+
+<h1>Resultados</h1>
+
+<div id="listaPartidos">
+
+<p>Próximamente aparecerán los 72 partidos.</p>
+
+</div>
+
+<button class="save-btn">
+💾 Guardar
+</button>
+
+</section>
+
+<section id="posiciones" class="screen">
+
+<button class="back-btn volver">
+← Volver
+</button>
+
+<h1>Posiciones</h1>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+<th>#</th>
+<th>Participante</th>
+<th>Puntos</th>
+</tr>
+</thead>
+
+<tbody id="tablaPosiciones">
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+<section id="estadisticas" class="screen">
+
+<button class="back-btn volver">
+← Volver
+</button>
+
+<h1>Estadísticas</h1>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+⚽ Partidos jugados
+<br><br>
+0 / 72
+</div>
+
+<div class="stat-card">
+🎯 Puntos en juego
+<br><br>
+144
+</div>
+
+<div class="stat-card">
+🏅 Más dobles
+<br><br>
+-
+</div>
+
+<div class="stat-card">
+🥇 Líder actual
+<br><br>
+-
+</div>
+
+</div>
+
+</section>
+
+<script src="app.js"></script>
+
+</body>
+</html>
