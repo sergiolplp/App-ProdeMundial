@@ -338,21 +338,29 @@ function actualizarEstadisticas(){
 
   if(ranking.length){
 
-    const lider = [...ranking]
-    .sort((a,b)=>b.puntos-a.puntos)[0];
+    const topPuntos = [...ranking]
+.sort((a,b)=>b.puntos-a.puntos)
+.slice(0,3);
 
-    const dobles = [...ranking]
-    .sort((a,b)=>b.dobles-a.dobles)[0];
+const topDobles = [...ranking]
+.sort((a,b)=>b.dobles-a.dobles)
+.slice(0,3);
 
-    document.getElementById(
-      "statLider"
-    ).textContent =
-      `${lider.nombre} (${lider.puntos})`;
+document.getElementById(
+  "statLider"
+).innerHTML = topPuntos
+.map((p,i)=>
+`${["🥇","🥈","🥉"][i]} ${p.nombre} (${p.puntos})`
+)
+.join("<br>");
 
-    document.getElementById(
-      "statDobles"
-    ).textContent =
-      `${dobles.nombre} (${dobles.dobles})`;
+document.getElementById(
+  "statDobles"
+).innerHTML = topDobles
+.map((p,i)=>
+`${["🥇","🥈","🥉"][i]} ${p.nombre} (${p.dobles})`
+)
+.join("<br>");
 
   }
 
