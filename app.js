@@ -27,9 +27,13 @@ document.getElementById("btnPosiciones")
 document.getElementById("btnEstadisticas")
 .onclick=()=>{
 
+  
   actualizarEstadisticas();
 
   mostrar("estadisticas");
+
+  document.getElementById("btnPremios")
+.onclick=()=>mostrar("premios");
 
 };
 
