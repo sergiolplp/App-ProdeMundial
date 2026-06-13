@@ -121,3 +121,43 @@ document
   mostrar("inicio");
 
 };
+
+function calcularPuntosPronostico(pron, real){
+
+  const p1 = Number(pron.r1);
+  const p2 = Number(pron.r2);
+
+  const r1 = Number(real.r1);
+  const r2 = Number(real.r2);
+
+  if(
+    p1 === r1 &&
+    p2 === r2
+  ){
+    return {
+      puntos:2,
+      doble:1
+    };
+  }
+
+  const signoPron =
+    p1 > p2 ? "L" :
+    p1 < p2 ? "V" : "E";
+
+  const signoReal =
+    r1 > r2 ? "L" :
+    r1 < r2 ? "V" : "E";
+
+  if(signoPron === signoReal){
+    return {
+      puntos:1,
+      doble:0
+    };
+  }
+
+  return {
+    puntos:0,
+    doble:0
+  };
+
+}
