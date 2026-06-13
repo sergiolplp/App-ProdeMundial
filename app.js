@@ -324,10 +324,13 @@ function actualizarEstadisticas(){
   ).textContent =
     `${jugados} / 72`;
 
-  document.getElementById(
-    "statPuntos"
-  ).textContent =
-    jugados * 2;
+  const puntosRepartidos = jugados * 2;
+const puntosFaltantes = 144 - puntosRepartidos;
+
+document.getElementById(
+  "statPuntos"
+).textContent =
+  `${puntosRepartidos} / ${puntosFaltantes}`;
 
   const ranking =
   JSON.parse(
