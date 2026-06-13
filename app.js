@@ -61,3 +61,44 @@ function renderPartidos(){
   });
 
 }
+
+function guardarResultados(){
+
+  const inputs = document.querySelectorAll(".partido");
+
+  inputs.forEach((partidoHTML,index)=>{
+
+    const goles = partidoHTML.querySelectorAll("input");
+
+    partidos[index].r1 = goles[0].value;
+    partidos[index].r2 = goles[1].value;
+
+  });
+
+  localStorage.setItem(
+    "prodeResultados",
+    JSON.stringify(partidos)
+  );
+
+}
+
+const guardados =
+localStorage.getItem("prodeResultados");
+
+if(guardados){
+
+  const datos = JSON.parse(guardados);
+
+  datos.forEach((partido,index)=>{
+
+    if(partidos[index]){
+
+      partidos[index].r1 = partido.r1;
+      partidos[index].r2 = partido.r2;
+
+    }
+
+  });
+
+}
+
