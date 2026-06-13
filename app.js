@@ -286,3 +286,48 @@ function mostrarDobles(){
   });
 
 }
+
+function actualizarEstadisticas(){
+
+  const jugados = partidos.filter(
+    p => p.r1 !== "" && p.r2 !== ""
+  ).length;
+
+  document.getElementById(
+    "statPartidos"
+  ).textContent =
+    `${jugados} / 72`;
+
+  document.getElementById(
+    "statPuntos"
+  ).textContent =
+    jugados * 2;
+
+  const ranking =
+  JSON.parse(
+    localStorage.getItem(
+      "rankingProde"
+    )
+  ) || [];
+
+  if(ranking.length){
+
+    const lider = [...ranking]
+    .sort((a,b)=>b.puntos-a.puntos)[0];
+
+    const dobles = [...ranking]
+    .sort((a,b)=>b.dobles-a.dobles)[0];
+
+    document.getElementById(
+      "statLider"
+    ).textContent =
+      `${lider.nombre} (${lider.puntos})`;
+
+    document.getElementById(
+      "statDobles"
+    ).textContent =
+      `${dobles.nombre} (${dobles.dobles})`;
+
+  }
+
+}
