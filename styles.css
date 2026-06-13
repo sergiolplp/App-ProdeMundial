@@ -79,23 +79,62 @@ h1{
 }
 
 .back-btn{
-  margin-bottom:20px;
-  padding:10px 16px;
+  position:fixed;
+  top:15px;
+  left:15px;
+
+  z-index:1000;
+
+  padding:12px 18px;
+
   border:none;
-  border-radius:12px;
+  border-radius:30px;
+
+  font-size:1rem;
+  font-weight:bold;
+
+  cursor:pointer;
+
+  box-shadow:0 4px 15px rgba(0,0,0,.3);
+
+  background:linear-gradient(
+    135deg,
+    #ff4d4d,
+    #b30000
+  );
+
+  color:white;
 }
 
 .save-btn{
+
   position:fixed;
+
   right:20px;
   bottom:20px;
 
-  border:none;
-  border-radius:50px;
+  z-index:1000;
 
   padding:16px 24px;
 
+  border:none;
+  border-radius:35px;
+
+  font-size:1rem;
   font-weight:bold;
+
+  cursor:pointer;
+
+  background:linear-gradient(
+    135deg,
+    #00c853,
+    #009624
+  );
+
+  color:white;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+
 }
 
 .table-container{
