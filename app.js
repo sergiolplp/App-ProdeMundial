@@ -25,7 +25,13 @@ document.getElementById("btnPosiciones")
 };
 
 document.getElementById("btnEstadisticas")
-.onclick=()=>mostrar("estadisticas");
+.onclick=()=>{
+
+  actualizarEstadisticas();
+
+  mostrar("estadisticas");
+
+};
 
 document.querySelectorAll(".volver")
 .forEach(btn=>{
@@ -122,6 +128,8 @@ document
   guardarResultados();
 
 recalcularProde();
+
+actualizarEstadisticas();
 
   alert(
     "Resultados guardados correctamente."
@@ -331,3 +339,6 @@ function actualizarEstadisticas(){
   }
 
 }
+
+recalcularProde();
+actualizarEstadisticas();
