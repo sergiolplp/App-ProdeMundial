@@ -26,7 +26,7 @@ body{
   var(--bg3));
 
   background-size:400% 400%;
-  animation:fondo 1s ease infinite;
+  animation:fondo 3s ease infinite;
 }
 
 @keyframes fondo{
