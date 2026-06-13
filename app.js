@@ -255,7 +255,14 @@ function mostrarPosiciones(){
 
     tabla.innerHTML += `
       <tr>
-        <td>${index+1}</td>
+        <td>
+${
+index===0 ? "🥇" :
+index===1 ? "🥈" :
+index===2 ? "🥉" :
+index+1
+}
+</td>
         <td>${fila.nombre}</td>
         <td>${fila.puntos}</td>
       </tr>
