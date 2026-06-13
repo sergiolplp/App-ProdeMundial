@@ -161,3 +161,119 @@ function calcularPuntosPronostico(pron, real){
   };
 
 }
+
+function recalcularProde(){
+
+  const ranking = [];
+
+  for(const participante in pronosticos){
+
+    let puntos = 0;
+    let dobles = 0;
+
+    partidos.forEach(partido=>{
+
+      if(
+        partido.r1 === "" ||
+        partido.r2 === ""
+      ){
+        return;
+      }
+
+      const pron =
+      pronosticos[participante][partido.id];
+
+      if(!pron) return;
+
+      const resultado =
+      calcularPuntosPronostico(
+        pron,
+        partido
+      );
+
+      puntos += resultado.puntos;
+      dobles += resultado.doble;
+
+    });
+
+    ranking.push({
+      nombre:participante,
+      puntos,
+      dobles
+    });
+
+  }
+
+  ranking.sort(
+    (a,b)=>b.puntos-a.puntos
+  );
+
+  localStorage.setItem(
+    "rankingProde",
+    JSON.stringify(ranking)
+  );
+}
+
+function mostrarPosiciones(){
+
+  const ranking =
+  JSON.parse(
+    localStorage.getItem(
+      "rankingProde"
+    )
+  ) || [];
+
+  const tabla =
+  document.getElementById(
+    "tablaPosiciones"
+  );
+
+  tabla.innerHTML = "";
+
+  ranking.forEach((fila,index)=>{
+
+    tabla.innerHTML += `
+      <tr>
+        <td>${index+1}</td>
+        <td>${fila.nombre}</td>
+        <td>${fila.puntos}</td>
+      </tr>
+    `;
+
+  });
+
+}
+
+function mostrarDobles(){
+
+  const ranking =
+  JSON.parse(
+    localStorage.getItem(
+      "rankingProde"
+    )
+  ) || [];
+
+  ranking.sort(
+    (a,b)=>b.dobles-a.dobles
+  );
+
+  const tabla =
+  document.getElementById(
+    "tablaDobles"
+  );
+
+  tabla.innerHTML = "";
+
+  ranking.forEach((fila,index)=>{
+
+    tabla.innerHTML += `
+      <tr>
+        <td>${index+1}</td>
+        <td>${fila.nombre}</td>
+        <td>${fila.dobles}</td>
+      </tr>
+    `;
+
+  });
+
+}
