@@ -32,10 +32,10 @@ document.getElementById("btnEstadisticas")
 
   mostrar("estadisticas");
 
-  document.getElementById("btnPremios")
-.onclick=()=>mostrar("premios");
-
 };
+
+document.getElementById("btnPremios")
+.onclick=()=>mostrar("premios");
 
 document.querySelectorAll(".volver")
 .forEach(btn=>{
@@ -296,20 +296,14 @@ function mostrarDobles(){
 
     tabla.innerHTML += `
       <tr>
-        tabla.innerHTML += `
-  <tr>
-    <td>
-    ${
-    index===0 ? "🥇" :
-    index===1 ? "🥈" :
-    index===2 ? "🥉" :
-    index+1
-    }
-    </td>
-    <td>${fila.nombre}</td>
-    <td>${fila.puntos}</td>
-  </tr>
-`;
+        <td>
+        ${
+        index===0 ? "🥇" :
+        index===1 ? "🥈" :
+        index===2 ? "🥉" :
+        index+1
+        }
+        </td>
         <td>${fila.nombre}</td>
         <td>${fila.dobles}</td>
       </tr>
