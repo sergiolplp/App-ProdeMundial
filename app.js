@@ -37,6 +37,15 @@ document.getElementById("btnEstadisticas")
 document.getElementById("btnPremios")
 .onclick=()=>mostrar("premios");
 
+document.getElementById("btnParticipantes")
+.onclick=()=>{
+
+  mostrarParticipantes();
+
+  mostrar("participantes");
+
+};
+
 document.querySelectorAll(".volver")
 .forEach(btn=>{
   btn.onclick=()=>mostrar("inicio");
@@ -371,3 +380,117 @@ document.getElementById(
 
 recalcularProde();
 actualizarEstadisticas();
+
+function mostrarParticipantes(){
+
+  const contenedor =
+  document.getElementById(
+    "listaParticipantes"
+  );
+
+  contenedor.innerHTML = "";
+
+  Object.keys(pronosticos)
+  .forEach(nombre=>{
+
+    contenedor.innerHTML += `
+      <button
+        class="card-btn participante-btn"
+        onclick="mostrarDetalleParticipante('${nombre}')"
+      >
+        👤 ${nombre}
+      </button>
+    `;
+
+  });
+
+}
+
+function mostrarDetalleParticipante(nombre){
+
+  document.getElementById(
+    "nombreParticipante"
+  ).textContent = nombre;
+
+  const ranking =
+  JSON.parse(
+    localStorage.getItem(
+      "rankingProde"
+    )
+  ) || [];
+
+  const participante =
+  ranking.find(
+    p => p.nombre === nombre
+  );
+
+  if(participante){
+
+    document.getElementById(
+      "detallePosicion"
+    ).textContent =
+      ranking.findIndex(
+        p => p.nombre === nombre
+      ) + 1;
+
+    document.getElementById(
+      "detallePuntos"
+    ).textContent =
+      participante.puntos;
+
+    document.getElementById(
+      "detalleDobles"
+    ).textContent =
+      participante.dobles;
+
+  }
+
+  const lista =
+  document.getElementById(
+    "listaPronosticos"
+  );
+
+  lista.innerHTML = "";
+
+  partidos.forEach(partido=>{
+
+    const pron =
+    pronosticos[nombre][partido.id];
+
+    if(!pron) return;
+
+    lista.innerHTML += `
+      <div class="partido">
+
+        <span>${partido.local}</span>
+
+        <span class="resultado-fijo">
+          ${pron.r1}
+        </span>
+
+        <span class="resultado-fijo">
+          ${pron.r2}
+        </span>
+
+        <span>${partido.visitante}</span>
+
+      </div>
+    `;
+
+  });
+
+  mostrar("detalleParticipante");
+
+}
+
+document
+.querySelectorAll(".volverParticipante")
+.forEach(btn=>{
+
+  btn.onclick=()=>{
+
+    mostrar("participantes");
+
+  };
+
+});
