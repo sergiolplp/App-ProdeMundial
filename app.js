@@ -15,7 +15,14 @@ document.getElementById("btnResultados")
 };
 
 document.getElementById("btnPosiciones")
-.onclick=()=>mostrar("posiciones");
+.onclick=()=>{
+
+  mostrarPosiciones();
+  mostrarDobles();
+
+  mostrar("posiciones");
+
+};
 
 document.getElementById("btnEstadisticas")
 .onclick=()=>mostrar("estadisticas");
@@ -113,6 +120,8 @@ document
   if(!confirmar) return;
 
   guardarResultados();
+
+recalcularProde();
 
   alert(
     "Resultados guardados correctamente."
