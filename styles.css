@@ -148,6 +148,11 @@ th,td{
   border-radius:15px;
 }
 
+.partido span{
+  text-align:center;
+  font-weight:600;
+}
+
 .partido input{
   width:100%;
   padding:10px;
