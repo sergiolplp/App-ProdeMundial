@@ -2,297 +2,144 @@
 <html lang="es">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Prode Mundial 2026</title>
-
-<link rel="icon" href="prode.ico">
-<link rel="apple-touch-icon" href="prode.ico">
-
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="styles.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prode Mundial 2026</title>
+  <link rel="icon" href="prode.ico">
+  <link rel="apple-touch-icon" href="prode.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<section id="inicio" class="screen active">
+  <section id="inicio" class="screen active">
+    <h1>🏆 PRODE MUNDIAL 2026</h1>
+    <div class="menu">
+      <button class="card-btn" id="btnResultados">⚽ Carga de Resultados</button>
+      <button class="card-btn" id="btnPosiciones">🏆 Posiciones del Prode</button>
+      <button class="card-btn" id="btnEstadisticas">📊 Estadísticas</button>
+      <button class="card-btn" id="btnParticipantes">👥 Prodes Participantes</button>
+      <button class="card-btn" id="btnPremios">💰 Premios</button>
+    </div>
+  </section>
 
-<h1>🏆 PRODE MUNDIAL 2026</h1>
+  <section id="resultados" class="screen">
+    <button class="back-btn volver">← Volver</button>
+    <h1>Resultados</h1>
+    <div id="listaPartidos">
+      <p>Próximamente aparecerán los 72 partidos.</p>
+    </div>
+    <button class="save-btn" id="btnGuardar">💾 Guardar</button>
+  </section>
 
-<div class="menu">
+  <section id="posiciones" class="screen">
+    <button class="back-btn volver">← Volver</button>
+    <h1>Posiciones</h1>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Participante</th>
+            <th>Puntos</th>
+          </tr>
+        </thead>
+        <tbody id="tablaPosiciones"></tbody>
+      </table>
+    </div>
 
-<button class="card-btn" id="btnResultados">
-⚽ Carga de Resultados
-</button>
+    <h2>🎯 Ranking de Dobles</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Participante</th>
+            <th>Dobles</th>
+          </tr>
+        </thead>
+        <tbody id="tablaDobles"></tbody>
+      </table>
+    </div>
+  </section>
 
-<button class="card-btn" id="btnPosiciones">
-🏆 Posiciones del Prode
-</button>
-
-<button class="card-btn" id="btnEstadisticas">
-📊 Estadísticas
-</button>
-
-  <button class="card-btn" id="btnParticipantes">
-👥 Prodes Participantes
-</button>
-
-<button class="card-btn" id="btnPremios">
-💰 Premios
-</button>
-  
-</div>
-
-</section>
-
-<section id="resultados" class="screen">
-
-<button class="back-btn volver">
-← Volver
-</button>
-
-<h1>Resultados</h1>
-
-<div id="listaPartidos">
-
-<p>Próximamente aparecerán los 72 partidos.</p>
-
-</div>
-
-<button
-  class="save-btn"
-  id="btnGuardar"
->
-💾 Guardar
-</button>
-
-</section>
-
-<section id="posiciones" class="screen">
-
-<button class="back-btn volver">
-← Volver
-</button>
-
-<h1>Posiciones</h1>
-
-<div class="table-container">
-
-<table>
-
-<thead>
-<tr>
-<th>#</th>
-<th>Participante</th>
-<th>Puntos</th>
-</tr>
-</thead>
-
-<tbody id="tablaPosiciones">
-</tbody>
-
-</table>
-
-</div>
-
-<h2>🎯 Ranking de Dobles</h2>
-
-<div class="table-container">
-
-  <table>
-
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Participante</th>
-        <th>Dobles</th>
-      </tr>
-    </thead>
-
-    <tbody id="tablaDobles">
-    </tbody>
-
-  </table>
-
-</div>
-  
-</section>
-
-<section id="estadisticas" class="screen">
-
-<button class="back-btn volver">
-← Volver
-</button>
-
-<h1>Estadísticas</h1>
-
-<div class="stats-grid">
-
-  <div class="stat-card">
-    ⚽ Partidos jugados
-    <br><br>
-    <span id="statPartidos">0 / 72</span>
-  </div>
-
-  <div class="stat-card">
-    🎯 Puntos en juego
-    <br><br>
-    <span id="statPuntos">0</span>
-  </div>
-
-  <div class="stat-card">
-    🏆 Ranking de Dobles
-    <br><br>
-    <span id="statDobles">-</span>
-  </div>
-
-  <div class="stat-card">
-    🏆 Ranking General
-    <br><br>
-    <span id="statLider">-</span>
-  </div>
-
-</div>
-
-<section id="participantes" class="screen">
-
-<button class="back-btn volver">
-← Volver
-</button>
-
-<h1>👥 Prodes Participantes</h1>
-
-<div id="listaParticipantes">
-</div>
-
-</section>
-
-<section id="detalleParticipante" class="screen">
-
-<button class="back-btn volverParticipante">
-← Volver
-</button>
-
-<h1 id="nombreParticipante">
-Participante
-</h1>
-
-<div class="stats-grid">
-
-<div class="stat-card">
-🏆 Posición
-<br><br>
-<span id="detallePosicion">-</span>
-</div>
-
-<div class="stat-card">
-⭐ Puntos
-<br><br>
-<span id="detallePuntos">-</span>
-</div>
-
-<div class="stat-card">
-🎯 Dobles
-<br><br>
-<span id="detalleDobles">-</span>
-</div>
-
-</div>
-
-<br>
-
-<div id="listaPronosticos">
-</div>
-
-</section>
-  
-</section>
+  <section id="estadisticas" class="screen">
+    <button class="back-btn volver">← Volver</button>
+    <h1>Estadísticas</h1>
+    <div class="stats-grid">
+      <div class="stat-card">
+        ⚽ Partidos jugados<br><br>
+        <span id="statPartidos">0 / 72</span>
+      </div>
+      <div class="stat-card">
+        🎯 Puntos en juego<br><br>
+        <span id="statPuntos">0</span>
+      </div>
+      <div class="stat-card">
+        🏆 Ranking de Dobles<br><br>
+        <span id="statDobles">-</span>
+      </div>
+      <div class="stat-card">
+        🏆 Ranking General<br><br>
+        <span id="statLider">-</span>
+      </div>
+    </div>
+  </section> <section id="participantes" class="screen">
+    <button class="back-btn volver">← Volver</button>
+    <h1>👥 Prodes Participantes</h1>
+    <div id="listaParticipantes"></div>
+  </section>
 
   <section id="detalleParticipante" class="screen">
+    <button class="back-btn volverParticipante">← Volver</button>
+    <h1 id="nombreParticipante">Participante</h1>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        🏆 Posición<br><br>
+        <span id="detallePosicion">-</span>
+      </div>
+      <div class="stat-card">
+        ⭐ Puntos<br><br>
+        <span id="detallePuntos">-</span>
+      </div>
+      <div class="stat-card">
+        🎯 Dobles<br><br>
+        <span id="detalleDobles">-</span>
+      </div>
+    </div>
+    <br>
+    <div id="listaPronosticos"></div>
+  </section>
 
-<button class="back-btn volverParticipante">
-← Volver
-</button>
+  <section id="premios" class="screen">
+    <button class="back-btn volver">← Volver</button>
+    <h1>🏆 Premios</h1>
+    
+    <div class="premios-container">
+      <div class="premio-card">
+        🥇<br><br>1° Premio<br><br>$ 147.000
+      </div>
+      <div class="premio-card">
+        🥈<br><br>2° Premio<br><br>$ 42.000
+      </div>
+      <div class="premio-card">
+        🥉<br><br>3° Premio<br><br>$ 21.000
+      </div>
+    </div>
 
-<h1 id="nombreParticipante">
-Participante
-</h1>
+    <footer>
+      Gracias por participar.<br>
+      Les deseamos lo mejor.<br><br>
+      Los organizadores.
+    </footer>
+  </section>  
 
-<div class="stats-grid">
-
-<div class="stat-card">
-🏆 Posición
-<br><br>
-<span id="detallePosicion">-</span>
-</div>
-
-<div class="stat-card">
-⭐ Puntos
-<br><br>
-<span id="detallePuntos">-</span>
-</div>
-
-<div class="stat-card">
-🎯 Dobles
-<br><br>
-<span id="detalleDobles">-</span>
-</div>
-
-</div>
-
-<br>
-
-<div id="listaPronosticos">
-</div>
-
-</section>
-
-  
-
-<section id="premios" class="screen">
-
-<button class="back-btn volver">
-← Volver
-</button>
-
-<h1>🏆 Premios</h1>
-
-<div class="premios-container">
-
-<div class="premio-card">
-🥇<br><br>
-1° Premio<br><br>
-$ 147.000
-</div>
-
-<div class="premio-card">
-🥈<br><br>
-2° Premio<br><br>
-$ 42.000
-</div>
-
-<div class="premio-card">
-🥉<br><br>
-3° Premio<br><br>
-$ 21.000
-</div>
-
-</div>
-
-<footer>
-Gracias por participar.<br>
-Les deseamos lo mejor.<br><br>
-Los organizadores.
-</footer>
-
-</section>  
-
-<script src="partidos.js"></script>
-<script src="pronosticos.js"></script>
-<script src="app.js"></script>
+  <script src="partidos.js"></script>
+  <script src="pronosticos.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
