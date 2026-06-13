@@ -102,3 +102,22 @@ if(guardados){
 
 }
 
+document
+.getElementById("btnGuardar")
+.onclick=()=>{
+
+  const confirmar = confirm(
+    "¿Desea guardar los cambios realizados?"
+  );
+
+  if(!confirmar) return;
+
+  guardarResultados();
+
+  alert(
+    "Resultados guardados correctamente."
+  );
+
+  mostrar("inicio");
+
+};
