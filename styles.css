@@ -154,7 +154,7 @@ th,td{
 
 .stats-grid{
   display:grid;
-  gap:15px;
+  gap:30px;
 }
 
 .stat-card{
