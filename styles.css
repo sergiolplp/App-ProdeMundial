@@ -288,12 +288,11 @@ h2{
 
 .pronostico-item{
 
-  display:flex;
-  justify-content:space-between;
+  text-align:center;
 
-  padding:12px;
+  padding:15px;
 
-  margin-bottom:8px;
+  margin-bottom:10px;
 
   background:rgba(255,255,255,.12);
 
