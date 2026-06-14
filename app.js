@@ -84,12 +84,16 @@ function renderPartidos(){
 
   <span>${partido.visitante}</span>
 
+  <div class="info-container">
+
   <button
     class="info-btn"
     onclick="verPronosticosPartido(${partido.id})"
   >
-    ❗
+    ❗ Ver pronósticos
   </button>
+
+</div>
 
 </div>
     `;
