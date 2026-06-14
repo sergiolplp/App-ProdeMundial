@@ -553,13 +553,14 @@ function verPronosticosPartido(id){
     }
 
     lista.innerHTML += `
-      <div class="pronostico-item">
-        <span>${nombre}</span>
-        <strong>
-          ${pron.r1}-${pron.r2}
-        </strong>
-      </div>
-    `;
+  <div class="pronostico-item">
+    <div>${nombre}</div>
+    <br>
+    <strong>
+      ${pron.r1} - ${pron.r2}
+    </strong>
+  </div>
+`;
 
   });
 
