@@ -504,5 +504,76 @@ document
 
 });
 
+function verPronosticosPartido(id){
+
+  const partido =
+  partidos.find(
+    p => p.id === id
+  );
+
+  document.getElementById(
+    "tituloPartido"
+  ).textContent =
+    `${partido.local} vs ${partido.visitante}`;
+
+  let local = 0;
+  let empate = 0;
+  let visitante = 0;
+
+  const lista =
+  document.getElementById(
+    "listaPronosticosPartido"
+  );
+
+  lista.innerHTML = "";
+
+  Object.keys(pronosticos)
+  .forEach(nombre=>{
+
+    const pron =
+    pronosticos[nombre][id];
+
+    if(!pron) return;
+
+    const r1 = Number(pron.r1);
+    const r2 = Number(pron.r2);
+
+    if(r1 > r2){
+      local++;
+    }
+    else if(r1 < r2){
+      visitante++;
+    }
+    else{
+      empate++;
+    }
+
+    lista.innerHTML += `
+      <div class="pronostico-item">
+        <span>${nombre}</span>
+        <strong>
+          ${pron.r1}-${pron.r2}
+        </strong>
+      </div>
+    `;
+
+  });
+
+  document.getElementById(
+    "statLocal"
+  ).textContent = local;
+
+  document.getElementById(
+    "statEmpate"
+  ).textContent = empate;
+
+  document.getElementById(
+    "statVisitante"
+  ).textContent = visitante;
+
+  mostrar("detallePartido");
+
+}
+
 recalcularProde();
 actualizarEstadisticas();
