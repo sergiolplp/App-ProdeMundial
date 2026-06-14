@@ -37,6 +37,9 @@ document.getElementById("btnEstadisticas")
 document.getElementById("btnPremios")
 .onclick=()=>mostrar("premios");
 
+document.getElementById("btnSobre")
+.onclick=()=>mostrar("sobre");
+
 document.getElementById("btnParticipantes")
 .onclick=()=>{
 
