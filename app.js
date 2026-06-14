@@ -378,8 +378,7 @@ document.getElementById(
 
 }
 
-recalcularProde();
-actualizarEstadisticas();
+
 
 function mostrarParticipantes(){
 
@@ -494,3 +493,6 @@ document
   };
 
 });
+
+recalcularProde();
+actualizarEstadisticas();
