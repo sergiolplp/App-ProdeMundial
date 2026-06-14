@@ -267,3 +267,36 @@ h2{
   line-height:1.8;
   font-size:1.05rem;
 }
+
+.info-btn{
+
+  width:35px;
+  height:35px;
+
+  border:none;
+  border-radius:50%;
+
+  font-size:1rem;
+  font-weight:bold;
+
+  cursor:pointer;
+
+  background:white;
+  color:#003366;
+
+}
+
+.pronostico-item{
+
+  display:flex;
+  justify-content:space-between;
+
+  padding:12px;
+
+  margin-bottom:8px;
+
+  background:rgba(255,255,255,.12);
+
+  border-radius:12px;
+
+}
