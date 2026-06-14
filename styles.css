@@ -300,3 +300,34 @@ h2{
   border-radius:12px;
 
 }
+
+.info-container{
+
+  grid-column:1 / -1;
+
+  display:flex;
+  justify-content:center;
+
+  margin-top:10px;
+
+}
+
+.info-btn{
+
+  width:100%;
+
+  max-width:300px;
+
+  padding:10px;
+
+  border:none;
+  border-radius:12px;
+
+  font-weight:bold;
+
+  background:white;
+  color:#003366;
+
+  cursor:pointer;
+
+}
