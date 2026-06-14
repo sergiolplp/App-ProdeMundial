@@ -66,25 +66,32 @@ function renderPartidos(){
     contenedor.innerHTML += `
       <div class="partido">
 
-        <span>${partido.local}</span>
+  <span>${partido.local}</span>
 
-        <input
-          type="number"
-          min="0"
-          max="20"
-          value="${partido.r1}"
-        >
+  <input
+    type="number"
+    min="0"
+    max="20"
+    value="${partido.r1}"
+  >
 
-        <input
-          type="number"
-          min="0"
-          max="20"
-          value="${partido.r2}"
-        >
+  <input
+    type="number"
+    min="0"
+    max="20"
+    value="${partido.r2}"
+  >
 
-        <span>${partido.visitante}</span>
+  <span>${partido.visitante}</span>
 
-      </div>
+  <button
+    class="info-btn"
+    onclick="verPronosticosPartido(${partido.id})"
+  >
+    ❗
+  </button>
+
+</div>
     `;
 
   });
