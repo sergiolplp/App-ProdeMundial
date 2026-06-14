@@ -575,5 +575,19 @@ function verPronosticosPartido(id){
 
 }
 
+document
+.querySelectorAll(
+  ".volverDetallePartido"
+)
+.forEach(btn=>{
+
+  btn.onclick=()=>{
+
+    mostrar("resultados");
+
+  };
+
+});
+
 recalcularProde();
 actualizarEstadisticas();
