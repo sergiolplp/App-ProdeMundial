@@ -326,3 +326,15 @@ h2{
   font-size:.9rem;
   font-weight:600;
 }
+
+.stat-card span{
+
+  display:block;
+
+  text-align:center;
+
+  font-size:1.5rem;
+
+  font-weight:bold;
+
+}
