@@ -90,7 +90,7 @@ function renderPartidos(){
     class="info-btn"
     onclick="verPronosticosPartido(${partido.id})"
   >
-    ❗ Ver pronósticos
+    ❗Pronósticos
   </button>
 
 </div>
