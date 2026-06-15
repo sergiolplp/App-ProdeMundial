@@ -185,6 +185,8 @@ th,td{
   padding:15px;
 
   border-radius:15px;
+
+  justify-items:center;
 }
 
 .partido span{
@@ -255,8 +257,9 @@ h2{
   gap:15px;
   max-width:500px;
   margin:auto;
-  .participante-btn{
+}
 
+.participante-btn{
   width:100%;
 }
 
@@ -301,19 +304,14 @@ h2{
 }
 
 .info-container{
-
   grid-column:2 / 4;
-
+  width:100%;
   display:flex;
   justify-content:center;
-
-  margin-top:10px;
-
 }
 
 .info-btn{
-
-  width:100%;
+  width:130px;
 
   padding:8px;
 
@@ -322,5 +320,4 @@ h2{
 
   font-size:.9rem;
   font-weight:600;
-
 }
