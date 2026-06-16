@@ -456,6 +456,58 @@ function mostrarDetalleParticipante(nombre){
     ).textContent =
       participante.dobles;
 
+
+    let aciertos = 0;
+
+partidos.forEach(partido=>{
+
+  if(
+    partido.r1 === "" ||
+    partido.r2 === ""
+  ){
+    return;
+  }
+
+  const pron =
+  pronosticos[nombre][partido.id];
+
+  if(!pron) return;
+
+  const resultado =
+  calcularPuntosPronostico(
+    pron,
+    partido
+  );
+
+  if(resultado.puntos > 0){
+    aciertos++;
+  }
+
+});
+
+const jugados =
+partidos.filter(
+  p => p.r1 !== "" && p.r2 !== ""
+).length;
+
+const efectividad =
+jugados > 0
+? (
+(participante.puntos / (jugados * 2))
+* 100
+).toFixed(1)
+: 0;
+
+document.getElementById(
+  "detalleAciertos"
+).textContent =
+  `${aciertos}/${jugados}`;
+
+document.getElementById(
+  "detalleEfectividad"
+).textContent =
+  `${efectividad}%`;
+
   }
 
   const lista =
