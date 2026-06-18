@@ -24,6 +24,15 @@ document.getElementById("btnPosiciones")
 
 };
 
+document.getElementById("btnEvolucion")
+.onclick=()=>{
+
+  mostrarEvolucion();
+
+  mostrar("evolucion");
+
+};
+
 document.getElementById("btnEstadisticas")
 .onclick=()=>{
 
@@ -645,6 +654,128 @@ document
   };
 
 });
+
+function calcularRankingHasta(limite){
+
+  const ranking = [];
+
+  for(const participante in pronosticos){
+
+    let puntos = 0;
+
+    partidos
+    .slice(0, limite)
+    .forEach(partido=>{
+
+      if(
+        partido.r1 === "" ||
+        partido.r2 === ""
+      ){
+        return;
+      }
+
+      const pron =
+      pronosticos[participante][partido.id];
+
+      if(!pron) return;
+
+      puntos +=
+      calcularPuntosPronostico(
+        pron,
+        partido
+      ).puntos;
+
+    });
+
+    ranking.push({
+      nombre: participante,
+      puntos
+    });
+
+  }
+
+  ranking.sort(
+    (a,b)=>b.puntos-a.puntos
+  );
+
+  return ranking;
+
+}
+
+function mostrarEvolucion(){
+
+  const tabla =
+  document.getElementById(
+    "tablaEvolucion"
+  );
+
+  tabla.innerHTML = "";
+
+  const j1 =
+  calcularRankingHasta(24);
+
+  const j2 =
+  calcularRankingHasta(48);
+
+  const j3 =
+  calcularRankingHasta(72);
+
+  const actual =
+  JSON.parse(
+    localStorage.getItem(
+      "rankingProde"
+    )
+  ) || [];
+
+  actual.forEach((fila,index)=>{
+
+    const posJ1 =
+    j1.findIndex(
+      p => p.nombre === fila.nombre
+    );
+
+    const posJ2 =
+    j2.findIndex(
+      p => p.nombre === fila.nombre
+    );
+
+    const posJ3 =
+    j3.findIndex(
+      p => p.nombre === fila.nombre
+    );
+
+    tabla.innerHTML += `
+      <tr>
+
+        <td>${fila.nombre}</td>
+
+        <td>
+          ${posJ1 >= 0 ? posJ1+1 : "-"}
+        </td>
+
+        <td>
+          ${posJ2 >= 0 ? posJ2+1 : "-"}
+        </td>
+
+        <td>
+          ${posJ3 >= 0 ? posJ3+1 : "-"}
+        </td>
+
+        <td>
+          ${
+          index===0 ? "🥇" :
+          index===1 ? "🥈" :
+          index===2 ? "🥉" :
+          index+1
+          }
+        </td>
+
+      </tr>
+    `;
+
+  });
+
+}
 
 recalcularProde();
 actualizarEstadisticas();
