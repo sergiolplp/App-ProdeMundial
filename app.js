@@ -711,14 +711,25 @@ function mostrarEvolucion(){
 
   tabla.innerHTML = "";
 
+const partidosJugados =
+partidos.filter(
+  p => p.r1 !== "" && p.r2 !== ""
+).length;
+  
   const j1 =
-  calcularRankingHasta(24);
+partidosJugados >= 24
+? calcularRankingHasta(24)
+: [];
 
-  const j2 =
-  calcularRankingHasta(48);
+const j2 =
+partidosJugados >= 48
+? calcularRankingHasta(48)
+: [];
 
-  const j3 =
-  calcularRankingHasta(72);
+const j3 =
+partidosJugados >= 72
+? calcularRankingHasta(72)
+: [];
 
   const actual =
   JSON.parse(
