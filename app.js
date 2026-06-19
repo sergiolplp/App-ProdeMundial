@@ -35,8 +35,9 @@ document.getElementById("btnEvolucion")
 document.getElementById("btnEstadisticas")
 .onclick=()=>{
 
-  
   actualizarEstadisticas();
+
+  mostrarPartidosDobles();
 
   mostrar("estadisticas");
 
@@ -387,7 +388,80 @@ document.getElementById(
 
 }
 
+function mostrarPartidosDobles(){
 
+  const tabla =
+  document.getElementById(
+    "tablaPartidosDobles"
+  );
+
+  tabla.innerHTML = "";
+
+  const datos = [];
+
+  partidos.forEach(partido=>{
+
+    if(
+      partido.r1 === "" ||
+      partido.r2 === ""
+    ){
+      return;
+    }
+
+    const acertaron = [];
+
+    for(const nombre in pronosticos){
+
+      const pron =
+      pronosticos[nombre][partido.id];
+
+      if(!pron) continue;
+
+      if(
+        Number(pron.r1) === Number(partido.r1) &&
+        Number(pron.r2) === Number(partido.r2)
+      ){
+        acertaron.push(nombre);
+      }
+
+    }
+
+    if(acertaron.length > 0){
+
+      datos.push({
+
+        partido:
+        `${partido.local} ${partido.r1}-${partido.r2} ${partido.visitante}`,
+
+        cantidad:
+        acertaron.length,
+
+        participantes:
+        acertaron.join(", ")
+
+      });
+
+    }
+
+  });
+
+  datos.sort(
+    (a,b)=>b.cantidad-a.cantidad
+  );
+
+  datos.forEach(fila=>{
+
+    tabla.innerHTML += `
+      <tr>
+        <td>${fila.partido}</td>
+        <td>${fila.cantidad}</td>
+        <td>${fila.participantes}</td>
+      </tr>
+    `;
+
+  });
+
+}
 
 function mostrarParticipantes(){
 
