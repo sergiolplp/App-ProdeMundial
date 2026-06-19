@@ -257,9 +257,15 @@ function recalcularProde(){
 
   }
 
-  ranking.sort(
-    (a,b)=>b.puntos-a.puntos
-  );
+  ranking.sort((a,b)=>{
+
+  if(b.puntos !== a.puntos){
+    return b.puntos - a.puntos;
+  }
+
+  return b.dobles - a.dobles;
+
+});
 
   localStorage.setItem(
     "rankingProde",
@@ -285,20 +291,40 @@ function mostrarPosiciones(){
 
   ranking.forEach((fila,index)=>{
 
-    tabla.innerHTML += `
-      <tr>
-        <td>
-${
-index===0 ? "🥇" :
-index===1 ? "🥈" :
-index===2 ? "🥉" :
-index+1
-}
-</td>
-        <td>${fila.nombre}</td>
-        <td>${fila.puntos}</td>
-      </tr>
-    `;
+    const jugados = partidos.filter(
+  p => p.r1 !== "" && p.r2 !== ""
+).length;
+
+const maximoPosible = jugados * 2;
+
+const efectividad =
+maximoPosible > 0
+? Math.round(
+    fila.puntos * 100 / maximoPosible
+  )
+: 0;
+
+tabla.innerHTML += `
+  <tr>
+    <td>
+      ${
+      index===0 ? "🥇" :
+      index===1 ? "🥈" :
+      index===2 ? "🥉" :
+      index+1
+      }
+    </td>
+
+    <td>${fila.nombre}</td>
+
+    <td>${fila.puntos}</td>
+
+    <td>${fila.dobles}</td>
+
+    <td>${efectividad}%</td>
+
+  </tr>
+`;
 
   });
 
