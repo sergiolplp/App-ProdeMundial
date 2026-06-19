@@ -536,7 +536,7 @@ partidos.forEach(partido=>{
 
     listaDobles.innerHTML += `
       <div class="doble-item">
-        🏆 ${partido.local}
+        ${partido.local}
         ${partido.r1}-${partido.r2}
         ${partido.visitante}
       </div>
