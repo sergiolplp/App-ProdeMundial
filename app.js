@@ -18,7 +18,6 @@ document.getElementById("btnPosiciones")
 .onclick=()=>{
 
   mostrarPosiciones();
-  mostrarDobles();
 
   mostrar("posiciones");
 
@@ -330,46 +329,7 @@ tabla.innerHTML += `
 
 }
 
-function mostrarDobles(){
 
-  const ranking =
-  JSON.parse(
-    localStorage.getItem(
-      "rankingProde"
-    )
-  ) || [];
-
-  ranking.sort(
-    (a,b)=>b.dobles-a.dobles
-  );
-
-  const tabla =
-  document.getElementById(
-    "tablaDobles"
-  );
-
-  tabla.innerHTML = "";
-
-  ranking.forEach((fila,index)=>{
-
-    tabla.innerHTML += `
-      <tr>
-        <td>
-        ${
-        index===0 ? "🥇" :
-        index===1 ? "🥈" :
-        index===2 ? "🥉" :
-        index+1
-        }
-        </td>
-        <td>${fila.nombre}</td>
-        <td>${fila.dobles}</td>
-      </tr>
-    `;
-
-  });
-
-}
 
 function actualizarEstadisticas(){
 
