@@ -505,6 +505,47 @@ document.getElementById(
 
   }
 
+const listaDobles =
+document.getElementById(
+  "listaDobles"
+);
+
+listaDobles.innerHTML = "";
+
+partidos.forEach(partido=>{
+
+  if(
+    partido.r1 === "" ||
+    partido.r2 === ""
+  ){
+    return;
+  }
+
+  const pron =
+  pronosticos[nombre][partido.id];
+
+  if(!pron) return;
+
+  const resultado =
+  calcularPuntosPronostico(
+    pron,
+    partido
+  );
+
+  if(resultado.doble === 1){
+
+    listaDobles.innerHTML += `
+      <div class="doble-item">
+        🏆 ${partido.local}
+        ${partido.r1}-${partido.r2}
+        ${partido.visitante}
+      </div>
+    `;
+
+  }
+
+});
+  
   const lista =
   document.getElementById(
     "listaPronosticos"
