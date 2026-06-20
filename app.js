@@ -70,10 +70,13 @@ function renderPartidos(){
 
   contenedor.innerHTML="";
 
-  partidos.forEach(partido=>{
+  partidos.forEach((partido,index)=>{
 
     contenedor.innerHTML += `
-      <div class="partido">
+      <div
+  class="partido"
+  id="partido-${index}"
+>
 
   <span>${partido.local}</span>
 
@@ -108,6 +111,28 @@ function renderPartidos(){
     `;
 
   });
+
+  const siguiente =
+partidos.findIndex(
+  p => p.r1 === "" || p.r2 === ""
+);
+
+if(siguiente >= 0){
+
+  setTimeout(()=>{
+
+    document
+      .getElementById(
+        `partido-${siguiente}`
+      )
+      ?.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+  },100);
+
+}
 
 }
 
