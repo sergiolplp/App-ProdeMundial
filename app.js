@@ -56,6 +56,8 @@ document.getElementById("btnParticipantes")
 
   mostrar("participantes");
 
+  window.scrollTo(0,0);
+
 };
 
 document.querySelectorAll(".volver")
