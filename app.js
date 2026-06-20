@@ -358,6 +358,30 @@ document.getElementById(
     )
   ) || [];
 
+  let totalPuntos = 0;
+
+ranking.forEach(participante=>{
+  totalPuntos += participante.puntos;
+});
+
+const maximoPosible =
+Object.keys(pronosticos).length *
+jugados *
+2;
+
+const efectividadGeneral =
+maximoPosible > 0
+? (
+(totalPuntos / maximoPosible)
+* 100
+).toFixed(1)
+: 0;
+
+document.getElementById(
+  "statEfectividadGeneral"
+).textContent =
+  `${efectividadGeneral}%`;
+
   if(ranking.length){
 
     const topPuntos = [...ranking]
