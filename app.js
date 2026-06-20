@@ -705,6 +705,11 @@ partidos.forEach(partido=>{
 
   mostrar("detalleParticipante");
 
+window.scrollTo({
+  top: 0,
+  behavior: "instant"
+});
+
 }
 
 document
