@@ -803,6 +803,13 @@ function verPronosticosPartido(id){
   ).textContent = visitante;
 
   mostrar("detallePartido");
+  window.scrollTo({
+
+  top: 0,
+
+  behavior: "instant"
+
+})
 
 }
 
@@ -815,6 +822,8 @@ document
   btn.onclick=()=>{
 
     mostrar("resultados");
+
+    renderPartidos();
 
   };
 
