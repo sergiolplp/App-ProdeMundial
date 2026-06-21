@@ -536,7 +536,10 @@ function mostrarParticipantes(){
     `;
 
   });
-
+window.scrollTo({
+  top: 0,
+  behavior: "instant"
+});
 }
 
 function mostrarDetalleParticipante(nombre){
@@ -721,6 +724,11 @@ document
   btn.onclick=()=>{
 
     mostrar("participantes");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "instant"
+    });
 
   };
 
