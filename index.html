@@ -134,7 +134,47 @@ Los organizadores.
   <span id="statEfectividadGeneral">0%</span>
 </div>
     </div>
-  </section> <section id="participantes" class="screen">
+    <br>
+
+<button
+  class="card-btn"
+  id="btnComparar"
+>
+⚔️ Participante vs Participante
+</button>
+    
+  </section>
+
+  <section id="comparacion" class="screen">
+
+<button class="back-btn volver">
+← Volver
+</button>
+
+<h1>⚔️ Participante vs Participante</h1>
+
+<select id="participanteA"></select>
+
+<br><br>
+
+<select id="participanteB"></select>
+
+<br><br>
+
+<button
+  class="save-btn"
+  onclick="compararParticipantes()"
+>
+Analizar
+</button>
+
+<br><br>
+
+<div id="resultadoComparacion"></div>
+
+</section>
+  
+  <section id="participantes" class="screen">
     <button class="back-btn volver">← Volver</button>
     <h1>👥 Prodes Participantes</h1>
     <div id="listaParticipantes"></div>
