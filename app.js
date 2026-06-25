@@ -43,6 +43,16 @@ document.getElementById("btnEstadisticas")
 
 };
 
+document.getElementById(
+  "btnComparar"
+).onclick=()=>{
+
+  cargarSelectParticipantes();
+
+  mostrar("comparacion");
+
+};
+
 document.getElementById("btnPremios")
 .onclick=()=>mostrar("premios");
 
@@ -542,6 +552,40 @@ window.scrollTo({
 });
 }
 
+function cargarSelectParticipantes(){
+
+  const a =
+  document.getElementById(
+    "participanteA"
+  );
+
+  const b =
+  document.getElementById(
+    "participanteB"
+  );
+
+  a.innerHTML="";
+  b.innerHTML="";
+
+  Object.keys(pronosticos)
+  .forEach(nombre=>{
+
+    a.innerHTML += `
+      <option>
+        ${nombre}
+      </option>
+    `;
+
+    b.innerHTML += `
+      <option>
+        ${nombre}
+      </option>
+    `;
+
+  });
+
+}
+
 function mostrarDetalleParticipante(nombre){
 
   document.getElementById(
@@ -959,6 +1003,164 @@ partidosJugados >= 72
     `;
 
   });
+
+}
+
+function compararParticipantes(){
+
+  const nombreA =
+  document.getElementById(
+    "participanteA"
+  ).value;
+
+  const nombreB =
+  document.getElementById(
+    "participanteB"
+  ).value;
+
+  if(nombreA === nombreB){
+
+    alert(
+      "Seleccione participantes distintos."
+    );
+
+    return;
+  }
+
+  const ranking =
+  JSON.parse(
+    localStorage.getItem(
+      "rankingProde"
+    )
+  ) || [];
+
+  const jugadorA =
+  ranking.find(
+    p => p.nombre === nombreA
+  );
+
+  const jugadorB =
+  ranking.find(
+    p => p.nombre === nombreB
+  );
+
+  const diferencia =
+  Math.abs(
+    jugadorA.puntos -
+    jugadorB.puntos
+  );
+
+  let pendientes = 0;
+
+  let distintos = 0;
+
+  let tabla = "";
+
+  partidos.forEach(partido=>{
+
+    if(
+      partido.r1 !== "" &&
+      partido.r2 !== ""
+    ){
+      return;
+    }
+
+    pendientes++;
+
+    const pronA =
+    pronosticos[nombreA][partido.id];
+
+    const pronB =
+    pronosticos[nombreB][partido.id];
+
+    if(
+      pronA.r1 != pronB.r1 ||
+      pronA.r2 != pronB.r2
+    ){
+
+      distintos++;
+
+      tabla += `
+      <tr>
+        <td>
+          ${partido.local}
+          vs
+          ${partido.visitante}
+        </td>
+
+        <td>
+          ${pronA.r1}-${pronA.r2}
+        </td>
+
+        <td>
+          ${pronB.r1}-${pronB.r2}
+        </td>
+      </tr>
+      `;
+
+    }
+
+  });
+
+  const maximoDescuento =
+  distintos * 2;
+
+  const estado =
+  maximoDescuento >= diferencia
+  ? "🟢 Puede alcanzarlo"
+  : "🔴 No puede alcanzarlo";
+
+  document.getElementById(
+    "resultadoComparacion"
+  ).innerHTML = `
+
+<h2>
+${nombreA} vs ${nombreB}
+</h2>
+
+<p>
+<strong>Diferencia actual:</strong>
+${diferencia}
+</p>
+
+<p>
+<strong>Partidos pendientes:</strong>
+${pendientes}
+</p>
+
+<p>
+<strong>Pronósticos distintos:</strong>
+${distintos}
+</p>
+
+<p>
+<strong>Estado:</strong>
+${estado}
+</p>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+<th>Partido</th>
+<th>${nombreA}</th>
+<th>${nombreB}</th>
+</tr>
+</thead>
+
+<tbody>
+
+${tabla}
+
+</tbody>
+
+</table>
+
+</div>
+
+`;
 
 }
 
