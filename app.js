@@ -1102,13 +1102,12 @@ function compararParticipantes(){
 
   });
 
-  const maximoDescuento =
-  distintos * 2;
+  
+const estado =
+(distintos * 2) >= diferencia
+? "🟢 Puede alcanzarlo"
+: "🔴 No puede alcanzarlo";
 
-  const estado =
-  maximoDescuento >= diferencia
-  ? "🟢 Puede alcanzarlo"
-  : "🔴 No puede alcanzarlo";
 
   document.getElementById(
     "resultadoComparacion"
@@ -1135,10 +1134,6 @@ ${pendientes}
 ${distintos}
 </p>
 
-<p>
-<strong>🏆 Puntos potenciales en disputa:</strong>
-${maximoDescuento}
-</p>
 
 <p>
 <strong>Estado:</strong><br>
