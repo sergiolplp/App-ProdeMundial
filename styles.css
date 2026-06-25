@@ -403,3 +403,11 @@ h2{
   text-align: center;
   margin-bottom: 15px;
 }
+
+.resumen-comparacion{
+  line-height: 2;
+}
+
+.resumen-comparacion p{
+  margin: 12px 0;
+}
