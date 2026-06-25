@@ -1118,25 +1118,34 @@ function compararParticipantes(){
 ${nombreA} vs ${nombreB}
 </h2>
 
+<div class="resumen-comparacion">
+
 <p>
-<strong>Diferencia actual:</strong>
+<strong>📊 Diferencia actual:</strong>
 ${diferencia}
 </p>
 
 <p>
-<strong>Partidos pendientes:</strong>
+<strong>⚽ Partidos pendientes:</strong>
 ${pendientes}
 </p>
 
 <p>
-<strong>Pronósticos distintos:</strong>
+<strong>🎯 Pronósticos distintos:</strong>
 ${distintos}
 </p>
 
 <p>
-<strong>Estado:</strong>
+<strong>🏆 Puntos potenciales en disputa:</strong>
+${maximoDescuento}
+</p>
+
+<p>
+<strong>Estado:</strong><br>
 ${estado}
 </p>
+
+</div>
 
 <div class="table-container">
 
