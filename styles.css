@@ -411,3 +411,11 @@ h2{
 .resumen-comparacion p{
   margin: 12px 0;
 }
+
+#btnComparar{
+  display:block;
+  width:90%;
+  max-width:350px;
+  margin:20px auto;
+}
+
